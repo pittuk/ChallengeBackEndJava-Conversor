@@ -4,6 +4,17 @@
  */
 package com.mycompany.challengeoneconversor.igu;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.time.LocalDate;
+import javax.swing.JPanel;
+import vistas.Inicio;
+import vistas.Longitud;
+import vistas.Moneda;
+import vistas.Temperatura;
+
+
 /**
  *
  * @author pittu
@@ -14,7 +25,12 @@ public class Pantalla extends javax.swing.JFrame {
      * Creates new form Pantalla
      */
     public Pantalla() {
+        
         initComponents();
+        iniciadorEstilos();
+        mostrarFecha();
+        iniciadorContenido();
+        
     }
 
     /**
@@ -26,102 +42,241 @@ public class Pantalla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelConversorMonedas = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        fondo = new javax.swing.JPanel();
+        menu = new javax.swing.JPanel();
+        botonInicio = new javax.swing.JButton();
+        botonMonedas = new javax.swing.JButton();
+        botonLongitud = new javax.swing.JButton();
+        botonTemperatura = new javax.swing.JButton();
+        logoConversor = new javax.swing.JLabel();
+        nombrePrograma = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        fecha = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jLabel1.setText("Selecciona la opción de conversión");
+        fondo.setBackground(new java.awt.Color(255, 255, 255));
+        fondo.setMaximumSize(new java.awt.Dimension(800, 600));
+        fondo.setMinimumSize(new java.awt.Dimension(800, 600));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        menu.setBackground(new java.awt.Color(255, 153, 51));
+        menu.setPreferredSize(new java.awt.Dimension(220, 0));
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout PanelConversorMonedasLayout = new javax.swing.GroupLayout(PanelConversorMonedas);
-        PanelConversorMonedas.setLayout(PanelConversorMonedasLayout);
-        PanelConversorMonedasLayout.setHorizontalGroup(
-            PanelConversorMonedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelConversorMonedasLayout.createSequentialGroup()
-                .addGroup(PanelConversorMonedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelConversorMonedasLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel1))
-                    .addGroup(PanelConversorMonedasLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+        botonInicio.setBackground(new java.awt.Color(255, 136, 30));
+        botonInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonInicio.setForeground(new java.awt.Color(255, 255, 255));
+        botonInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono inicio.png"))); // NOI18N
+        botonInicio.setText("Inicio");
+        botonInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        botonInicio.setBorderPainted(false);
+        botonInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonInicio.setPreferredSize(new java.awt.Dimension(220, 36));
+        botonInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioActionPerformed(evt);
+            }
+        });
+        menu.add(botonInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 254, -1, 50));
+
+        botonMonedas.setBackground(new java.awt.Color(255, 136, 30));
+        botonMonedas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonMonedas.setForeground(new java.awt.Color(255, 255, 255));
+        botonMonedas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono monedas.png"))); // NOI18N
+        botonMonedas.setText("Monedas");
+        botonMonedas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        botonMonedas.setBorderPainted(false);
+        botonMonedas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonMonedas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonMonedas.setPreferredSize(new java.awt.Dimension(220, 36));
+        botonMonedas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMonedasActionPerformed(evt);
+            }
+        });
+        menu.add(botonMonedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 304, -1, 50));
+
+        botonLongitud.setBackground(new java.awt.Color(255, 136, 30));
+        botonLongitud.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonLongitud.setForeground(new java.awt.Color(255, 255, 255));
+        botonLongitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono longitud.png"))); // NOI18N
+        botonLongitud.setText("Longitud");
+        botonLongitud.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        botonLongitud.setBorderPainted(false);
+        botonLongitud.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonLongitud.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonLongitud.setPreferredSize(new java.awt.Dimension(220, 36));
+        botonLongitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLongitudActionPerformed(evt);
+            }
+        });
+        menu.add(botonLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, 50));
+
+        botonTemperatura.setBackground(new java.awt.Color(255, 136, 30));
+        botonTemperatura.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonTemperatura.setForeground(new java.awt.Color(255, 255, 255));
+        botonTemperatura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono temperatura.png"))); // NOI18N
+        botonTemperatura.setText("Temperatura");
+        botonTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        botonTemperatura.setBorderPainted(false);
+        botonTemperatura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonTemperatura.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonTemperatura.setPreferredSize(new java.awt.Dimension(220, 36));
+        botonTemperatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTemperaturaActionPerformed(evt);
+            }
+        });
+        menu.add(botonTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, 50));
+
+        logoConversor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoConversor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo conversor.png"))); // NOI18N
+        menu.add(logoConversor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, -1));
+
+        nombrePrograma.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        nombrePrograma.setForeground(new java.awt.Color(255, 255, 255));
+        nombrePrograma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombrePrograma.setText("CONVERSOR");
+        menu.add(nombrePrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 220, -1));
+
+        header.setBackground(new java.awt.Color(102, 102, 102));
+
+        fecha.setText("Martes 4 de julio de 2023");
+
+        titulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 255, 255));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titulo.setText("Inicio");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
-        PanelConversorMonedasLayout.setVerticalGroup(
-            PanelConversorMonedasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelConversorMonedasLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(fecha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addComponent(titulo)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        principal.setBackground(new java.awt.Color(255, 255, 255));
+        principal.setPreferredSize(new java.awt.Dimension(557, 450));
+        principal.setLayout(new java.awt.BorderLayout());
 
-        jMenuItem5.setText("Salir");
-        jMenu1.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Conversores");
-
-        jMenuItem1.setText("Conversor de monedas");
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setText("Conversor de longitud");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setText("Conversor de temperatura");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Conversor de tiempo");
-        jMenu2.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)))
+        );
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelConversorMonedas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelConversorMonedas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void botonTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTemperaturaActionPerformed
+        mostrarPanel(new Temperatura());
+titulo.setText("Conversor de temperatura");
+    }//GEN-LAST:event_botonTemperaturaActionPerformed
+
+    private void botonMonedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMonedasActionPerformed
+        mostrarPanel(new Moneda());
+        titulo.setText("Conversor de monedas");
+    }//GEN-LAST:event_botonMonedasActionPerformed
+
+    private void botonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioActionPerformed
+        iniciadorContenido(); 
+        
+    }//GEN-LAST:event_botonInicioActionPerformed
+
+    private void botonLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLongitudActionPerformed
+        mostrarPanel(new Longitud()); 
+        titulo.setText("Conversor de longitud");
+    }//GEN-LAST:event_botonLongitudActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelConversorMonedas;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JButton botonInicio;
+    private javax.swing.JButton botonLongitud;
+    private javax.swing.JButton botonMonedas;
+    private javax.swing.JButton botonTemperatura;
+    private javax.swing.JLabel fecha;
+    private javax.swing.JPanel fondo;
+    private javax.swing.JPanel header;
+    private javax.swing.JLabel logoConversor;
+    private javax.swing.JPanel menu;
+    private javax.swing.JLabel nombrePrograma;
+    private javax.swing.JPanel principal;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
+
+    private void iniciadorEstilos() {
+        
+        fecha.putClientProperty("FlatLaf.style", "font: bold $h3.regular.font");
+        fecha.setForeground(Color.WHITE);
+        
+    }
+    
+    private void mostrarFecha() {
+        LocalDate fechaActual = LocalDate.now();
+        int anio = fechaActual.getYear();
+        int dia = fechaActual.getDayOfMonth();
+        int mes = fechaActual.getMonthValue();
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        fecha.setText(dia + " de " + meses[mes - 1] + " de " + anio);
+    }
+    
+    private void iniciadorContenido() {
+        mostrarPanel(new Inicio());
+        titulo.setText("Inicio");
+    }
+    
+    private void mostrarPanel(JPanel p) {
+        p.setSize(557, 460);
+        p.setLocation(0, 0);
+        principal.removeAll();
+        principal.add(p, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+        
+    }
 }
