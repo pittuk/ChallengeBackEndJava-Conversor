@@ -10,8 +10,7 @@ Convertidor de unidades (monedas, longitud y temperatura) con java, Swing y Flat
 
 
 <h3>Validación de ingreso numérico y mensaje de notificación</h3>
-![image](https://github.com/pittuk/ChallengeBackEndJava-Conversor/assets/31288202/a8a773fc-5cf3-4729-9ad2-fa7a2264f747)
-
+<img src="https://github.com/pittuk/ChallengeBackEndJava-Conversor/assets/31288202/a8a773fc-5cf3-4729-9ad2-fa7a2264f747">
 
 
 
