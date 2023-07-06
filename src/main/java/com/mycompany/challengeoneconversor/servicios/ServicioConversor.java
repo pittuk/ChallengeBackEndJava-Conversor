@@ -3,6 +3,7 @@ package com.mycompany.challengeoneconversor.servicios;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.json.JSONObject;
 
@@ -43,9 +44,11 @@ public class ServicioConversor {
 
         char c = evt.getKeyChar();
         if (!Character.isDigit(c) && c != '.') {
+            JOptionPane.showMessageDialog(null,"Solo se permiten números");
             evt.consume();
         }
         if (c == '.' && texto.getText().contains(".")) {
+            
             evt.consume();
         }
     }

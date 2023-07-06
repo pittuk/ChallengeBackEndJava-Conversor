@@ -4,16 +4,16 @@
  */
 package com.mycompany.challengeoneconversor.igu;
 
-import com.formdev.flatlaf.FlatLightLaf;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.time.LocalDate;
+
 import javax.swing.JPanel;
 import vistas.Inicio;
 import vistas.Longitud;
 import vistas.Moneda;
 import vistas.Temperatura;
-
 
 /**
  *
@@ -25,12 +25,12 @@ public class Pantalla extends javax.swing.JFrame {
      * Creates new form Pantalla
      */
     public Pantalla() {
-        
+       
         initComponents();
         iniciadorEstilos();
         mostrarFecha();
         iniciadorContenido();
-        
+
     }
 
     /**
@@ -215,7 +215,7 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void botonTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTemperaturaActionPerformed
         mostrarPanel(new Temperatura());
-titulo.setText("Conversor de temperatura");
+        titulo.setText("Conversor de temperatura");
     }//GEN-LAST:event_botonTemperaturaActionPerformed
 
     private void botonMonedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMonedasActionPerformed
@@ -224,12 +224,12 @@ titulo.setText("Conversor de temperatura");
     }//GEN-LAST:event_botonMonedasActionPerformed
 
     private void botonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioActionPerformed
-        iniciadorContenido(); 
-        
+        iniciadorContenido();
+
     }//GEN-LAST:event_botonInicioActionPerformed
 
     private void botonLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLongitudActionPerformed
-        mostrarPanel(new Longitud()); 
+        mostrarPanel(new Longitud());
         titulo.setText("Conversor de longitud");
     }//GEN-LAST:event_botonLongitudActionPerformed
 
@@ -250,12 +250,12 @@ titulo.setText("Conversor de temperatura");
     // End of variables declaration//GEN-END:variables
 
     private void iniciadorEstilos() {
-        
+
         fecha.putClientProperty("FlatLaf.style", "font: bold $h3.regular.font");
         fecha.setForeground(Color.WHITE);
-        
+
     }
-    
+
     private void mostrarFecha() {
         LocalDate fechaActual = LocalDate.now();
         int anio = fechaActual.getYear();
@@ -264,12 +264,12 @@ titulo.setText("Conversor de temperatura");
         String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
         fecha.setText(dia + " de " + meses[mes - 1] + " de " + anio);
     }
-    
+
     private void iniciadorContenido() {
         mostrarPanel(new Inicio());
         titulo.setText("Inicio");
     }
-    
+
     private void mostrarPanel(JPanel p) {
         p.setSize(557, 460);
         p.setLocation(0, 0);
@@ -277,6 +277,7 @@ titulo.setText("Conversor de temperatura");
         principal.add(p, BorderLayout.CENTER);
         principal.revalidate();
         principal.repaint();
-        
+
     }
+
 }
